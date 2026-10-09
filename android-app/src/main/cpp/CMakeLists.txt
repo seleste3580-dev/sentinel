@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(sentinel_jni)
+add_library(sentinel_core SHARED IMPORTED)
+set_target_properties(sentinel_core PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI}/libsentinel_core.so")
+add_library(sentinel_jni SHARED sentinel_jni.cpp)
+target_link_libraries(sentinel_jni sentinel_core android log)

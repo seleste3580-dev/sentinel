@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "signed-in-dashboard": {
+      "targetKind": "existing-ui",
+      "projectId": "2b7be420-8da6-40a8-a35c-7b24ff4fd912",
+      "activeDraftId": "d7bf3643-8c1d-43e8-ba4a-31f985921a28",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "android-app/src/main/java/dev/sentinel/app/MainActivity.kt"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "44ace55db7d53ee5d34c348a52a6bbc6318293abfd8932f5962a0708ae87236e",
+        "android-app/src/main/java/dev/sentinel/app/MainActivity.kt": "925589df5863fe10d7fb8e1a05a449487a694e5d2aa07f4848c77ff3c2dfd0ed"
+      },
+      "drafts": {
+        "d7bf3643-8c1d-43e8-ba4a-31f985921a28": {
+          "title": "Sentinel Device Dashboard",
+          "visualDirection": "Calm deep-teal native Android dashboard with truthful location-sharing and device states",
+          "currentVersion": 2
+        }
+      },
+      "updatedAt": "2026-10-09T18:08:23.476Z"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+services:
+  api:
+    build: .
+    restart: unless-stopped
+    environment:
+      BIND_ADDR: 0.0.0.0:8080
+      DATABASE_URL: sqlite:///data/sentinel.db?mode=rwc
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+    volumes:
+      - sentinel-data:/data
+    expose:
+      - "8080"
+    security_opt:
+      - no-new-privileges:true
+
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:?Set SITE_ADDRESS in .env to your public domain}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - api
+
+volumes:
+  sentinel-data:
+  caddy-data:
+  caddy-config:

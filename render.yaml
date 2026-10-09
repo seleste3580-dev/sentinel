@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: sentinel-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: BIND_ADDR
+        value: 0.0.0.0:10000
+      - key: DATABASE_URL
+        value: sqlite:///data/sentinel.db?mode=rwc
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+    disk:
+      name: sentinel-data
+      mountPath: /data
+      sizeGB: 1

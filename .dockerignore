@@ -1,0 +1,11 @@
+.git
+.idea
+.superdesign
+target
+android-app
+assets
+build
+.gradle
+*.db
+*.db-shm
+*.db-wal
